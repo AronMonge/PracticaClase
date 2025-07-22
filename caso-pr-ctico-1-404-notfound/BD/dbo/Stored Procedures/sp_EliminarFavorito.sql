@@ -1,4 +1,4 @@
-﻿
+﻿--prueba
 CREATE PROCEDURE dbo.sp_EliminarFavorito
   @FavoritoId INT
 AS

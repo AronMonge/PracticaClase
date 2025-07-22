@@ -1,0 +1,45 @@
+﻿@page
+@model Web.Pages.Favoritos.AgregarModel
+
+<h1>Agregar favorito</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post" class="needs-validation" novalidate>
+                <div class="mb-3">
+                    <label asp-for="favorito.Tipo" class="form-label"></label>
+                    <input asp-for="favorito.Tipo" class="form-control" />
+                    <span asp-validation-for="favorito.Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="favorito.Titulo" class="form-label"></label>
+                    <input asp-for="favorito.Titulo" class="form-control" />
+                    <span asp-validation-for="favorito.Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="favorito.Comentario" class="form-label"></label>
+                    <textarea asp-for="favorito.Comentario" class="form-control"></textarea>
+                    <span asp-validation-for="favorito.Comentario" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-3">
+                    <input asp-for="favorito.CalificacionUsuario" class="form-check-input" />
+                    <label class="form-check-label" for="favorito_CalificacionUsuario">
+                        ¿Le da una buena calificación?
+                    </label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Agregar favorito</button>
+                <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+

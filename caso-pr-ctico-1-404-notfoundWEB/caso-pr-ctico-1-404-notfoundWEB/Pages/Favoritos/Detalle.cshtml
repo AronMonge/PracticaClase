@@ -1,0 +1,49 @@
+﻿@page "{id:int}"
+@model Web.Pages.Favoritos.DetalleModel
+@{
+    ViewData["Title"] = "Detalle del Favorito";
+}
+
+<h1>Detalle del Favorito</h1>
+
+<div class="container">
+    <div class="col-md-8">
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">
+                    @Html.DisplayFor(m => m.Favorito.Tipo):
+                    @Html.DisplayFor(m => m.Favorito.Titulo)
+                </h5>
+                <p class="card-text">
+                    <div>
+                        <b>@Html.DisplayNameFor(m => m.Favorito.Comentario):</b>
+                        @Html.DisplayFor(m => m.Favorito.Comentario)
+                    </div>
+                    <div>
+                        <b>@Html.DisplayNameFor(m => m.Favorito.CalificacionUsuario):</b>
+                        @(Model.Favorito.CalificacionUsuario ? "Sí 👍" : "No 👎")
+                    </div>
+                    <div>
+                        <b>@Html.DisplayNameFor(m => m.Favorito.FechaFavorito):</b>
+                        @Html.DisplayFor(m => m.Favorito.FechaFavorito)
+                    </div>
+                </p>
+            </div>
+        </div>
+    </div>
+
+    <a class="btn btn-primary" asp-page="./Index">Regresar</a>
+    <a class="btn btn-warning"
+       asp-page="./Editar"
+       asp-route-id="@Model.Favorito.FavoritoId">
+        Editar
+    </a>
+    <a class="btn btn-danger"
+       asp-page="./Eliminar"
+       asp-route-id="@Model.Favorito.FavoritoId">
+        Eliminar
+    </a>
+</div>
+
+
+

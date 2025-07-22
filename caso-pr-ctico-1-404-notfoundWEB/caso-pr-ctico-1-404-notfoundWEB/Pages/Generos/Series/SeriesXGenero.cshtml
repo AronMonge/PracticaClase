@@ -1,0 +1,142 @@
+﻿@page
+@model caso_pr_ctico_1_404_notfoundWEB.Pages.Generos.Series.SeriesXGeneroModel
+@{
+}
+
+<h1>Lista de series</h1>
+<h2>Genero: @Model.Genero </h2>
+<br />
+
+<div class="container">
+    <h4>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#airingTodayCollapse" role="button" aria-expanded="false" aria-controls="airingTodayCollapse">
+            Airing today
+        </a>
+    </h4>
+    <div class="collapse" id="airingTodayCollapse">
+        <div class="row">
+            @if (Model.airing_today != null && Model.airing_today.Any())
+            {
+                foreach (var series in Model.airing_today)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@series.Titulo</h5>
+                                <img src="https://image.tmdb.org/t/p/w500/@series.Imagen" class="img-fluid" />
+                                <p>@series.Descripcion</p>
+                                <p>@series.Fecha</p>
+                                <p>@series.Calificacion</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <div class=""><p>Series no encontradas</p></div>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#onTheAirCollapse" role="button" aria-expanded="false" aria-controls="onTheAirCollapse">
+            On the air
+        </a>
+    </h4>
+    <div class="collapse" id="onTheAirCollapse">
+        <div class="row">
+            @if (Model.on_the_air != null && Model.on_the_air.Any())
+            {
+                foreach (var series in Model.on_the_air)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@series.Titulo</h5>
+                                <img src="https://image.tmdb.org/t/p/w500/@series.Imagen" class="img-fluid" />
+                                <p>@series.Descripcion</p>
+                                <p>@series.Fecha</p>
+                                <p>@series.Calificacion</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Series no encontradas</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#popularCollapse" role="button" aria-expanded="false" aria-controls="popularCollapse">
+            Popular
+        </a>
+    </h4>
+    <div class="collapse" id="popularCollapse">
+        <div class="row">
+            @if (Model.popular != null && Model.popular.Any())
+            {
+                foreach (var series in Model.popular)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@series.Titulo</h5>
+                                <img src="https://image.tmdb.org/t/p/w500/@series.Imagen" class="img-fluid" />
+                                <p>@series.Descripcion</p>
+                                <p>@series.Fecha</p>
+                                <p>@series.Calificacion</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Series no encontradas</p>
+            }
+        </div>
+    </div>
+</div>
+
+<div class="container">
+    <h4>
+        <a class="btn btn-primary" data-bs-toggle="collapse" href="#topRatedCollapse" role="button" aria-expanded="false" aria-controls="topRatedCollapse">
+            Top rated
+        </a>
+    </h4>
+    <div class="collapse" id="topRatedCollapse">
+        <div class="row">
+            @if (Model.top_rated != null && Model.top_rated.Any())
+            {
+                foreach (var series in Model.top_rated)
+                {
+                    <div class="col-md-4 mb-4">
+                        <div class="card">
+                            <div class="card-body">
+                                <h5 class="card-title">@series.Titulo</h5>
+                                <img src="https://image.tmdb.org/t/p/w500/@series.Imagen" class="img-fluid" />
+                                <p>@series.Descripcion</p>
+                                <p>@series.Fecha</p>
+                                <p>@series.Calificacion</p>
+                            </div>
+                        </div>
+                    </div>
+                }
+            }
+            else
+            {
+                <p>Series no encontradas</p>
+            }
+        </div>
+    </div>
+</div>
+
+<a type="button" class="btn btn-primary" asp-page="./Index">Regresar</a>

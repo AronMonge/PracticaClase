@@ -1,0 +1,6 @@
+@caso_pr_ctico_1_404_notfound_HostAddress = http://localhost:5205
+
+GET {{caso_pr_ctico_1_404_notfound_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###

@@ -1,0 +1,51 @@
+﻿@page "{id:int}"
+@model Web.Pages.Favoritos.EditarModel
+@{
+    ViewData["Title"] = "Editar Favorito";
+}
+
+<h1>Editar Favorito</h1>
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-6 offset-md-3">
+            <form method="post" class="needs-validation" novalidate>
+                <input type="hidden" asp-for="Favorito.FavoritoId" />
+
+                <div class="mb-3">
+                    <label asp-for="Favorito.Tipo" class="form-label"></label>
+                    <input asp-for="Favorito.Tipo" class="form-control" />
+                    <span asp-validation-for="Favorito.Tipo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Favorito.Titulo" class="form-label"></label>
+                    <input asp-for="Favorito.Titulo" class="form-control" />
+                    <span asp-validation-for="Favorito.Titulo" class="text-danger"></span>
+                </div>
+
+                <div class="mb-3">
+                    <label asp-for="Favorito.Comentario" class="form-label"></label>
+                    <textarea asp-for="Favorito.Comentario" class="form-control"></textarea>
+                    <span asp-validation-for="Favorito.Comentario" class="text-danger"></span>
+                </div>
+
+                <div class="form-check mb-4">
+                    <input asp-for="Favorito.CalificacionUsuario" class="form-check-input" />
+                    <label asp-for="Favorito.CalificacionUsuario" class="form-check-label"></label>
+                </div>
+
+                <button type="submit" class="btn btn-primary">Guardar</button>
+                <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+            </form>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+
+
+

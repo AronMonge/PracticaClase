@@ -1,0 +1,41 @@
+﻿@page "{id:int}"
+@model Web.Pages.Favoritos.EliminarModel
+@{
+    ViewData["Title"] = "Eliminar Favorito";
+}
+
+<h1>Eliminar Favorito</h1>
+
+<div class="container">
+    <div class="col-md-8 offset-md-2">
+        <div class="card border-danger mb-4">
+            <div class="card-body">
+                <h5 class="card-title text-danger">
+                    @Html.DisplayFor(m => m.Favorito.Tipo) – @Html.DisplayFor(m => m.Favorito.Titulo)
+                </h5>
+
+                <dl class="row">
+                    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Favorito.Comentario)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(m => m.Favorito.Comentario)</dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Favorito.CalificacionUsuario)</dt>
+                    <dd class="col-sm-9">
+                        @(Model.Favorito.CalificacionUsuario ? "Sí 👍" : "No 👎")
+                    </dd>
+
+                    <dt class="col-sm-3">@Html.DisplayNameFor(m => m.Favorito.FechaFavorito)</dt>
+                    <dd class="col-sm-9">@Html.DisplayFor(m => m.Favorito.FechaFavorito)</dd>
+                </dl>
+
+                <form method="post">
+                    <button type="submit" class="btn btn-danger">Eliminar</button>
+                    <a asp-page="./Index" class="btn btn-secondary">Cancelar</a>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+

@@ -1,0 +1,66 @@
+﻿@page
+@model caso_pr_ctico_1_404_notfoundWEB.Pages.Peliculas.IndexModel
+@{
+}
+<section class="page-section bg-light" id="principal">
+    <div class="container">
+        <div class="text-center">
+            <h2 class="section-heading text-uppercase">Buscar Películas por Género</h2>
+        </div>
+        <div class="row justify-content-center">
+            <div class="col-md-6 text-center">
+                <form method="post">
+                    <div class="form-group">
+                    <label for="generos" class="my-2">Género</label>
+                    <select asp-for="pelicularequest.genero" class="form-select" asp-items="Model.GenerosPeliculas" id="generos">
+                        <option value="">Seleccione el género</option>
+                    </select>
+                    </div>
+                    <div class="form-group">
+                        <label class="control-label my-2" asp-for="pelicularequest.tipoLista">Lista</label>
+                        <input class="form-control" asp-for="pelicularequest.tipoLista" />
+                        <span class="text-danger" asp-validation-for="pelicularequest.tipoLista"></span>
+                    </div>
+                    <div class="form-group my-4">
+                        <button type="submit" class="btn btn-success">Buscar</button>
+                    </div>
+                    <div class="text-danger my-2" asp-validation-summary="All"></div>
+                </form>
+            </div>
+        </div>
+    </div>
+    @if (Model.PeliculasResultado != null && Model.PeliculasResultado.Any())
+    {
+        <div class="row mt-5">
+            <div class="col-12">
+                <h3 class="text-center mb-4">Resultados de la búsqueda</h3>
+                <div class="row">
+                    @foreach (var pelicula in Model.PeliculasResultado)
+                    {
+                        <div class="col-md-4 mb-3">
+                            <div class="card">
+                                <img src="https://image.tmdb.org/t/p/w500/@pelicula.Imagen" class="card-img-top">
+                                <div class="card-body">
+                                    <h5>@pelicula.Titulo</h5>
+                                    <p class="text-muted mb-1">@pelicula.Fecha</p>
+                                    <p class="mb-2">⭐ @pelicula.Calificacion/10</p>
+                                    <p class="small">@pelicula.Descripcion</p>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    }
+    else if (ViewContext.HttpContext.Request.Method == "POST")
+    {
+        <div class="row mt-5">
+            <div class="col-12 text-center">
+                <div class="alert alert-info">
+                    No se encontraron películas con los criterios de búsqueda.
+                </div>
+            </div>
+        </div>
+    }
+</section>

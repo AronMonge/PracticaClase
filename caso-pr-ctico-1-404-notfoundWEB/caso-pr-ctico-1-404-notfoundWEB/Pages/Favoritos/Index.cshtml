@@ -1,0 +1,43 @@
+﻿@page
+@model Web.Pages.Favoritos.IndexModel
+
+<h1>Mis favoritos</h1>
+
+<div class="text-center mb-4">
+    <a asp-page="./Agregar" class="btn btn-primary">Agregar favorito</a>
+</div>
+
+@if (Model.favoritos.Count == 0)
+{
+    <p class="text-muted">No tienes favoritos aún.</p>
+}
+else
+{
+    <div class="row">
+        @foreach (var f in Model.favoritos)
+        {
+            <div class="col-md-4 mb-4">
+                <div class="card">
+                    <div class="card-body">
+                        <h5 class="card-title">@f.Titulo</h5>
+                        <h6 class="card-subtitle mb-2 text-muted">@f.Tipo</h6>
+                        @if (!string.IsNullOrEmpty(f.Comentario))
+                        {
+                            <p class="card-text">@f.Comentario</p>
+                        }
+                        <p class="card-text">
+                            <small class="text-muted">
+                                Favorito el @f.FechaFavorito:g
+                            </small>
+                        </p>
+
+                        <a asp-page="./Detalle" asp-route-id="@f.FavoritoId" class="btn btn-primary">Detalle</a>
+                        <a asp-page="./Editar" asp-route-id="@f.FavoritoId" class="btn btn-warning">Editar</a>
+                        <a asp-page="./Eliminar" asp-route-id="@f.FavoritoId" class="btn btn-danger">Eliminar</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+}
+

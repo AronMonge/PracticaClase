@@ -1,0 +1,22 @@
+﻿@page
+@model caso_pr_ctico_1_404_notfoundWEB.Pages.Generos.Peliculas.IndexModel
+@{
+}
+<h1>Listado de Peliculas</h1>
+
+
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.TituloGeneros)
+        {
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-body">
+                        <p class="card-text text-center text-black">@item.Titulo</p>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
+

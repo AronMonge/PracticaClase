@@ -1,0 +1,19 @@
+﻿@page
+@model caso_pr_ctico_1_404_notfoundWEB.Pages.Generos.Series.IndexModel
+@{
+}
+<h1>Listado de Series</h1>
+<div class="container">
+    <div class="row">
+        @foreach (var item in Model.TituloGeneros)
+        {
+            <div class="col-md-3 mb-2">
+                <div class="card">
+                    <div class="card-body">
+                        <a type="button" class="card-text text-center text-black" asp-page="./SeriesXGenero" asp-route-genero="@item.Titulo">@item.Titulo</a>
+                    </div>
+                </div>
+            </div>
+        }
+    </div>
+</div>
